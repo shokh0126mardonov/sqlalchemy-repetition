@@ -1,6 +1,9 @@
+import sys
+
 from sqlalchemy.orm import Session
 
 from ..models import User
+from .product import Product
 
 class UserServices:
 
@@ -36,6 +39,24 @@ class UserServices:
             return
         
         print('Siz login qilindizgiz!')
-        # while True:
-        #     pass
-        
+
+
+        while True:
+            Menu = """
+            1.Product list
+            2.Order
+            3.Logout
+            """
+
+            print(Menu)
+            choice = input('> ')
+
+            if choice == '1':
+                Product.show_product()
+
+            elif choice == '2':
+                pass
+
+            elif choice == '3':
+                print('Biz bilan ishlaganingizdan xursandman!')
+                sys.exit()
