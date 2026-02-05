@@ -26,3 +26,16 @@ class UserServices:
 
         print('User yaratildi!')
         return
+    
+    @staticmethod
+    def user_login(db:Session,username:str,password:str,):
+        user = db.query(User).filter(User.username == username).first()
+
+        if not user:
+            print('User not found!')
+            return
+        
+        print('Siz login qilindizgiz!')
+        # while True:
+        #     pass
+        

@@ -8,7 +8,8 @@ class Cli:
 
     while True:
         Menu = """
-        1.Register
+        1.Register,
+        2.Login
         """
 
         print(Menu)
@@ -21,3 +22,8 @@ class Cli:
             last_name = input('last_name: ')
 
             UserServices.user_register(LocalSession(),username,password,first_name,last_name)
+
+        elif choice == '2':
+            username = input('username: ')
+            password = input('password: ')
+            UserServices.user_login(LocalSession(),username,password)
