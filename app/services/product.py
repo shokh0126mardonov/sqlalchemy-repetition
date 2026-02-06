@@ -15,9 +15,10 @@ class Product:
         for product in products:
             print(
         f"""
+        id :{product.id}
         name : {product.name},
-        price: {product.price}
-
+        price: {product.price},
+        quantity:{product.quantity}
         """
         )
         

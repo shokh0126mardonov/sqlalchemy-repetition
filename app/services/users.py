@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 
 from ..models import User
 from .product import Product
+from .order import OrderService
 
 class UserServices:
 
@@ -32,7 +33,7 @@ class UserServices:
     
     @staticmethod
     def user_login(db:Session,username:str,password:str,):
-        user = db.query(User).filter(User.username == username).first()
+        user = db.query(User).filter(User.username == username.strip(),User.password == password.strip()).first()
 
         if not user:
             print('User not found!')
@@ -55,7 +56,7 @@ class UserServices:
                 Product.show_product()
 
             elif choice == '2':
-                pass
+                OrderService.show_order(user)
 
             elif choice == '3':
                 print('Biz bilan ishlaganingizdan xursandman!')

@@ -1,4 +1,5 @@
 from sqlalchemy import Column,Integer,String
+from sqlalchemy.orm import relationship
 
 from ..db import Base
 
@@ -11,3 +12,9 @@ class User(Base):
     password = Column(String(length=64))
     first_name = Column(String)
     last_name = Column(String)
+
+    orders = relationship(
+        "Order",
+        back_populates="user",
+        cascade="all, delete-orphan"
+    )
